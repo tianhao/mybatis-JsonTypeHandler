@@ -1,0 +1,9 @@
+-- Postgresql
+DROP TABLE IF EXISTS team;
+CREATE TABLE team (
+  id      SERIAL,
+  leader  JSONB,
+  members JSONB,
+  equipment JSONB,
+  PRIMARY KEY (id) NOT DEFERRABLE INITIALLY IMMEDIATE
+) WITHOUT OIDS;
