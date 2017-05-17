@@ -26,7 +26,7 @@ public class MybatisJsonTest extends BaseBootTest {
     private TeamService teamService;
 
     @Test
-    public void testInsert() {
+    public void testReadWrite() {
         Team team = newTeam();
         teamService.insert(team);
         Team dbTeam = teamService.query(team.getId());
