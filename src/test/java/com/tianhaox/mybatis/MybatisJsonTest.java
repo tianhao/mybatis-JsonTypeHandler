@@ -35,11 +35,6 @@ public class MybatisJsonTest extends BaseBootTest {
         assertTrue(samplingCheck(team.getEquipment()));
     }
 
-
-    @Test
-    public void testQuery() {
-    }
-
     public boolean samplingCheck(Map<String, List<Map<String, Integer>>> equipment) {
         if (equipment == null || equipment.keySet().size() != 3) {
             return false;

@@ -29,7 +29,9 @@ dependencies {
     compile('org.mybatis.spring.boot:mybatis-spring-boot-starter:1.1.1') {
         exclude module: 'org.mybatis:mybatis'
     }
-    compile('org.mybatis:mybatis:3.4.5-SNAPSHOT')
+//    compile('org.mybatis:mybatis:3.4.5-SNAPSHOT')
+    compile fileTree(dir: 'lib', include: '*.jar')
+
     runtime('org.postgresql:postgresql')
     compile group: 'com.alibaba', name: 'druid', version: '1.0.26'
     compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.5'
