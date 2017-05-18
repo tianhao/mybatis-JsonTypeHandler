@@ -28,6 +28,7 @@ import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.NoSuchElementException;
+import org.postgresql.util.PGobject;
 
 /**
  * A Implement example of JsonTypeHandler
@@ -40,7 +41,15 @@ public class FastJsonTypeHandler extends BaseJsonTypeHandler {
     @Override
     public void setNonNullParameter(PreparedStatement ps, int i, Object parameter, JdbcType jdbcType)
             throws SQLException {
-        ps.setString(i, JSON.toJSONString(parameter));
+        // for postgresql
+        //if database url has parameter "stringtype=unspecified"
+        //ps.setString(i, JSON.toJSONString(parameter));
+
+        // else
+        PGobject jsonObject = new PGobject();
+        jsonObject.setType("json");
+        jsonObject.setValue(JSON.toJSONString(parameter));
+        ps.setObject(i, jsonObject);
     }
 
     @Override

@@ -1,6 +1,6 @@
 spring:
     datasource:
-        url: jdbc:postgresql://localhost:5432/test?stringtype=unspecified
+        url: jdbc:postgresql://localhost:5432/test
         username: tianhao
         password:
         type: com.alibaba.druid.pool.DruidDataSource
